@@ -29,6 +29,7 @@ import trainers.zsclip
 import trainers.maple
 import trainers.independentVL
 import trainers.vpt
+import trainers.llm
 
 def print_args(args, cfg):
     print("***************")
@@ -128,6 +129,11 @@ def extend_cfg(cfg):
     cfg.TRAINER.VPT.PROMPT_DEPTH_VISION = 1  # if set to 1, will represent shallow vision prompting only
     cfg.DATASET.SUBSAMPLE_CLASSES = "all"  # all, base or new
 
+    # Config for LLM
+    cfg.TRAINER.LLM = CN()
+    cfg.TRAINER.LLM.LLAMA = ".."
+    cfg.TRAINER.LLM.CLIP = ".."
+    cfg.TRAINER.LLM.LLAVA = ".."
 
 def setup_cfg(args):
     cfg = get_cfg_default()
